@@ -1,0 +1,141 @@
+/* --- Configuration --- */
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    font:                        "JetBrainsMono Nerd Font 11";
+}
+
+/* --- Color Mapping --- */
+@import "~/.config/rofi/colors.rasi"
+
+* {
+    main-bg:   @background-alt;
+    main-fg:   @foreground;      
+    main-br:   @selected;        
+    select-bg: rgba(255, 255, 255, 0.05); 
+    select-fg: @foreground;
+    surface0:  #313244; 
+}
+
+/* --- Main Window --- */
+window {
+    height:                      500px;
+    width:                       850px;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               12px;
+    border-color:                @main-br;
+    background-color:            @main-bg;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    orientation:                 horizontal;
+    children:                    [ "icon-current-entry", "listbox" ];
+    background-color:            transparent;
+}
+
+/* --- Left Pane (Live Image Preview) --- */
+icon-current-entry {
+    width:                       480px;
+    size:                        400px; /* REQUIRED to prevent the image from collapsing! */
+    expand:                      false;
+    margin:                      15px;
+    border-radius:               10px;
+    background-color:            transparent;
+}
+
+/* --- Right Pane (Search & Files) --- */
+listbox {
+    spacing:                     15px;
+    width:                       370px;
+    padding:                     15px 15px 15px 0px; 
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/* --- Input Bar (Search) --- */
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     12px 15px;
+    border-radius:               8px;
+    background-color:            @surface0;
+    text-color:                  @main-fg;
+    children:                    [ "prompt", "entry" ];
+    border:                      0px;
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search wallpapers...";
+    placeholder-color:           inherit;
+}
+
+/* --- Listview --- */
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     5px;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+    cursor:                      "default";
+    border:                      0px; 
+}
+
+/* --- Elements (Wallpaper Names) --- */
+element {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     10px 15px;
+    border-radius:               8px;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+    cursor:                      pointer;
+    border:                      0px;
+    /* We hide the small icon here so it ONLY shows in the large left pane */
+    children:                    [ "element-text" ]; 
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @main-fg;
+}
+
+element selected.normal {
+    background-color:            @select-bg;
+    text-color:                  @select-fg;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+}

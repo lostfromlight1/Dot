@@ -1,0 +1,165 @@
+/* --- Configuration --- */
+configuration {
+    modi:                        "drun,filebrowser,run";
+    show-icons:                  true;
+    display-drun:                " ";
+    display-run:                 " ";
+    display-filebrowser:         " ";
+    drun-display-format:         "{name}";
+    window-format:               "{w}{t}";
+    font:                        "JetBrainsMono Nerd Font 11";
+    icon-theme:                  "Papirus-Dark"; 
+}
+
+/* --- Color Mapping --- */
+@import "~/.config/rofi/colors.rasi"
+
+* {
+    main-bg:   @background-alt;
+    main-fg:   @foreground;      
+    main-br:   @selected;        
+    
+    /* Frosted glass highlight for selected apps */
+    select-bg: rgba(255, 255, 255, 0.05); 
+    select-fg: @foreground;
+    
+    /* Darker background for the search bar */
+    surface0:  #313244; 
+}
+
+/* --- Main Window --- */
+window {
+    height:                      500px;
+    width:                       850px;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               12px;
+    border-color:                @main-br;
+    background-color:            @main-bg;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    orientation:                 horizontal;
+    children:                    [ "dummy", "listbox" ];
+    background-color:            transparent;
+}
+
+/* --- Left Pane (Wallpaper Image) --- */
+dummy {
+    /* Larger width ratio as requested */
+    width:                       480px;
+    expand:                      false;
+    background-color:            transparent;
+    background-image:            url("~/.config/swww/wall.rofi", height);
+    
+    /* Keeps the floating look with window padding */
+    margin:                      15px;
+    border-radius:               10px;
+    
+    /* Strictly removed the border around the image as requested */
+    border:                      0px;
+}
+
+/* --- Right Pane (Search & Apps) --- */
+listbox {
+    spacing:                     15px;
+    /* Narrower width to make app part smaller */
+    width:                       370px;
+    padding:                     15px 15px 15px 0px; 
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/* --- Input Bar (Search) --- */
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     12px 15px;
+    border-radius:               8px;
+    background-color:            @surface0;
+    text-color:                  @main-fg;
+    children:                    [ "prompt", "entry" ];
+    border:                      0px;
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search apps...";
+    placeholder-color:           inherit;
+}
+
+/* --- Listview --- */
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     5px;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+    cursor:                      "default";
+    
+    /* Strict fix to remove the dashed line */
+    border:                      0px; 
+}
+
+/* --- Elements (App Items) --- */
+element {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     10px 15px;
+    border-radius:               8px;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+    cursor:                      pointer;
+    border:                      0px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @main-fg;
+}
+
+element selected.normal {
+    background-color:            @select-bg;
+    text-color:                  @select-fg;
+}
+
+element-icon {
+    size:                        32px;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+}

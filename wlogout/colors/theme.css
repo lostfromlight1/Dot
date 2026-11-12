@@ -1,0 +1,6 @@
+/* --- CATPPUCCIN MOCHA WLOGOUT THEME --- */
+@define-color main-bg #181825; /* Mocha Mantle (Base Button Color) */
+@define-color main-fg #cdd6f4; /* Mocha Text */
+@define-color hvr-bg #cba6f7; /* Mocha Mauve (Hover Background) */
+@define-color hvr-fg #11111b; /* Mocha Crust (Hover Text - Dark for contrast) */
+@define-color focus-bg #313244; /* Mocha Surface0 */

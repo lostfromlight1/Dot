@@ -1,0 +1,31 @@
+{
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "theme.font.name": "Source Code Pro",
+  "theme.font.label": "Source Code Pro",
+  "theme.font.size": "1rem",
+  "menus.transition": "crossfade",
+  "theme.bar.menus.enableShadow": false,
+  "theme.bar.buttons.workspaces.enableBorder": false,
+  "bar.workspaces.monitorSpecific": false,
+  "bar.workspaces.showWsIcons": false,
+  "wallpaper.pywal": true,
+  "theme.bar.menus.background": "#11111b",
+  "theme.matugen": false,
+  "wallpaper.image": "/home/leneion/Pictures/Wallpapers/1-everforest.jpg",
+  "theme.matugen_settings.mode": "dark",
+  "theme.matugen_settings.scheme_type": "fruit-salad",
+  "theme.bar.transparent": true,
+  "theme.bar.buttons.style": "default",
+  "theme.bar.floating": false,
+  "bar.workspaces.icons.occupied": "",
+  "bar.workspaces.workspaces": 6,
+  "menus.dashboard.powermenu.avatar.image": "/home/leneion/Pictures/Gifs/Arisu.gif",
+  "wallpaper.enable": true,
+  "theme.bar.menus.monochrome": false,
+  "menus.power.showLabel": true,
+  "theme.bar.buttons.modules.microphone.enableBorder": false,
+  "theme.bar.buttons.modules.netstat.enableBorder": true,
+  "bar.customModules.netstat.dynamicIcon": true
+}
